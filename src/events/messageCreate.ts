@@ -27,6 +27,7 @@ export class MessageCreate {
 				startMessage: msg
 			});
 		} else if (chnl.id === sotdChannel) {
+			if (msg.crosspostable) msg.crosspost();
 			// Extract the number of the SOTD.
 			const matches = msg.content.match(/\d+/);
 
