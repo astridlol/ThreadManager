@@ -15,7 +15,7 @@ export class MessageCreate {
 		const sotdChannel = process.env.SOTD_CHANNEL!!;
 
 		if (![pollsChannel, sotdChannel].includes(chnl.id)) return;
-		if (chnl.type !== ChannelType.GuildText) return;
+		if (chnl.type !== ChannelType.GuildText && chnl.type !== ChannelType.GuildAnnouncement) return;
 
 		if (chnl.id === pollsChannel) {
 			const poll = msg.content.split('\n')[2];
